@@ -1,0 +1,22 @@
+---
+
+ - name: Play-1
+   hosts: all
+   become: true
+   tasks:
+
+   - name: Ping All The Server
+     action: ping
+
+   - name: Output System Summary
+     shell: free -m
+     register: ram_usage
+
+   - name: Print RAM usage
+     debug:
+       var: ram_usage
+
+   - name: Install Git Plugin
+     apt:
+       name: git
+       state: present

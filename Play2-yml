@@ -1,0 +1,36 @@
+---
+
+ - name: Play-2
+   hosts: nginx
+   become: true
+   tasks:
+
+   - name: Remove repo in nginx
+     shell: rm -rf /var/www/html/*
+   
+   - name: Install nginx
+     apt:
+      name: nginx
+      state: present
+
+   - name: Enable and start nginx
+     service:
+      name: nginx
+      enabled: true
+      state: started
+
+   - name: Remove git repo if exist
+     shell: rm -rf ~/icet2020
+
+   - name: Clone git repository
+     git:
+      repo: https://github.com/msajidaligik/gik-fcse-icet2022.git
+      dest: ~/icet2022
+
+   - name: Copy repo to nginx root
+     shell: mv ~/icet2022/* /var/www/html/
+
+   - name: Restart nginx
+     service:
+      name: nginx
+      state: restarted

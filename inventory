@@ -1,0 +1,7 @@
+[nginx]
+172.18.0.2 ansible_user=root
+172.18.0.4 ansible_user=root
+
+[db]
+172.18.0.6 ansible_user=root
+172.18.0.3 ansbile_user=root

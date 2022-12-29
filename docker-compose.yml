@@ -1,0 +1,45 @@
+services:
+   OS-1:
+     image: ubuntu:latest
+     restart: on-failure
+     command: ["sleep","infinity"]
+     ports:
+      - "23:22"
+     networks:
+      - cs423-assignment-4
+   OS-2:
+     image: ubuntu:latest
+     restart: on-failure
+     command: ["sleep","infinity"]
+     ports:
+      - "24:22"
+     networks:
+      - cs423-assignment-4
+   OS-3:
+     image: ubuntu:latest
+     restart: on-failure
+     command: ["sleep","infinity"]
+     ports:
+      - "25:22"
+     networks:
+      - cs423-assignment-4
+   OS-4:
+     image: ubuntu:latest
+     restart: on-failure
+     command: ["sleep","infinity"]
+     ports:
+      - "26:22"
+     networks:
+      - cs423-assignment-4
+   OS-5:
+     image: ubuntu:latest
+     restart: on-failure
+     command: ["sleep","infinity"]
+     ports:
+      - "27:22"
+     networks:
+      - cs423-assignment-4
+networks:
+  cs423-assignment-4:
+    external: true
+    driver: bridge
